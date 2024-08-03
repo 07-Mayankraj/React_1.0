@@ -1,0 +1,109 @@
+:root {
+  --main-dark-color: #1F4E5F;
+  --main-dark-button-color: #1F4E5F;
+  --main-secondary-button-color : #79A8A9;
+  --main-bg-color : #AACFD0;
+  --main-secondary-bg-color : #79A8A9;
+  --main-light-color : #F4F7F7;
+}
+
+.App {
+  text-align: center;
+  background-color:  var(--main-bg-color);
+}
+
+.container{
+  border:  1px solid transparent;
+  height: 100vh;
+  
+}
+
+
+.container > h1{
+  width: 80%;
+  box-shadow: rgb(7, 119, 113) 0px -50px 80px -40px inset;
+  padding: 50px 20px;
+  border-radius: 5px;
+  margin: 10px auto;
+  font-size: 3rem;
+  color: var(--main-dark-color);
+}
+
+/* input box */
+
+
+
+
+.inputBox{
+  width: 80%;
+  margin: 50px auto ;
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 5px;
+  padding: 40px 20px;
+}
+
+
+input {
+  width: 100%;
+  max-width: 600px; 
+  padding: 10px; 
+  border: 2px solid var(--main-secondary-bg-color); 
+  border-radius: 10px; 
+  font-size: 16px; 
+  outline: none; 
+  transition: border-color 0.3s; 
+}
+
+input:focus {
+  border-color: var(--main-secondary-bg-color); /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+}
+
+
+/* Button.css */
+
+.Submit-button {
+  background-color: var(--main-secondary-bg-color); 
+  color: white; 
+  width: 20%;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.2s; 
+  outline: none; 
+}
+
+.Submit-button:hover {
+  background-color: var(--main-dark-color); 
+}
+
+.Submit-button:active {
+  transform: scale(0.98);
+}
+
+.Submit-button:focus {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+}
+
+.Submit-button:disabled {
+  background-color: var(--main-secondary-button-color);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+/* todo-list-container-app */
+
+.todo-list-container-app{
+  width: 80%;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  transition: box-shadow 0.3s;
+  list-style: none;
+  overflow: hidden; /* Hide any overflow */
+}

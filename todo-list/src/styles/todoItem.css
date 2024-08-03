@@ -1,0 +1,38 @@
+:root {
+    --main-dark-color: #1F4E5F;
+    --main-dark-button-color: #1F44E5F;
+    --main-secondary-button-color : #79A8A9;
+    --main-bg-color : #AACFD0;
+    --main-secondary-bg-color : #79A8A9;
+    --main-light-color : #F4F7F7;
+  }
+  
+
+
+.todo-list-container li {
+    display: flex;
+    margin: 10px auto;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: background-color 0.3s;
+    border-radius:10px ;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+}
+
+.todo-list-container li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+.todo-list-container li:hover {
+    background-color: var(--main-secondary-bg-color);
+    border-radius: 5px;
+}
+
+.Button-of-list{
+    display: flex;
+    width: 15%;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
