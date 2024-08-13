@@ -1,0 +1,35 @@
+.Post-class{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    list-style-type: none;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3 ,5% 20% 70%);
+    margin: 20px auto;
+    padding: 20px;
+
+}
+
+.pages-div{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.pages-div > button{
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    font-size: 1.2rem;
+}
+.Post-class li{
+    border-right: 1px solid red;
+    margin: auto 10px;
+}
+.loaders {
+    font-size: 3rem;
+    margin: 300px auto;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 50px 20px;
+    transition: 0.5s;
+}
