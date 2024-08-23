@@ -1,74 +1,55 @@
-import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import { useEffect, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
 import './App.css'
-import 'react-toastify/dist/ReactToastify.css';
-
-let initState = {
-  title: "",
-  price: "",
-  imageUrl: ""
-}
+import CreateProduct from './components/CreateProduct';
+import Product from './components/Product';
+import Pagination from './components/Pagination';
 const baseUrl = `http://localhost:3000/products`
 
 function App() {
 
-  const [formState, setFormState] = useState(initState)
-  const [isLoading ,setIsLoading] = useState(false)
-  const [isError , setIsError] = useState(false)
+
+  const [products, setProducts] = useState([])
+  const [page, setPage] = useState(1)
+  const [lastPage, setlastPage] = useState(0)
 
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value })
-  }
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
+  const fetchProducts = async (page) => {
     try {
-      let res = await fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formState)
-      })
-      setIsLoading(false)
-      console.log({ res });
-      setFormState(initState)
-
+      let data = await fetch(baseUrl + `/?_page=${page}&_per_page=6`)
+      let json = await data.json()
+      setlastPage(json.pages)
+      setProducts(json.data)
+      toast.success('Data Fetched and Updated')
     } catch (error) {
-      setIsError(true)
-      setIsLoading(false)
-      console.log(error);
+      toast.error('Error while getting the the data' + error.message)
     }
-
   }
 
+  useEffect(() => {
+    fetchProducts(page)
+  }, [page])
 
-  const { title, price, imageUrl } = formState
 
-  return isLoading ? <h1> Loading .....</h1> :   isError ? <h1>Something went Wrong :(</h1> :  ( 
-    <div>
+  const handlePageChange = (value)=>{
+    setPage(page + value)
+  }
 
-      <div id='product-add-form'>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Title :
-            <input name='title' type='text' value={title} onChange={handleChange} />
-          </label>
-          <label>
-            Price :
-            <input name='price' type='number' value={price} onChange={handleChange} />
-          </label>
-          <label>
-            Image Url :
-            <input name='imageUrl' type='text' value={imageUrl} onChange={handleChange} />
-          </label>
-          <input type='submit' value='Add Product' />
-        </form>
-      </div>
+  return (<div>
+    <Toaster position="top-right" />
+    <CreateProduct />
+
+    <div className='product-display'>
+      {
+        products.map((product) => {
+          return <Product key={product.id} product={product} />
+        })
+      }
     </div>
+
+   <Pagination page={page} lastPage = {lastPage} handlePageChange={handlePageChange}/>
+  </div>
   )
 }
 
