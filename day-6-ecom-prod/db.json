@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": "e1b5",
+      "title": "PowerSuppy",
+      "price": "1200",
+      "imageUrl": "https://m.media-amazon.com/images/I/51qQyKUgxHL._SX300_SY300_QL70_FMwebp_.jpg"
+    },
+    {
+      "id": "9f21",
+      "title": "12",
+      "price": "12",
+      "imageUrl": "https://m.media-amazon.com/images/I/51qQyKUgxHL._SX300_SY300_QL70_FMwebp_.jpg"
+    },
+    {
+      "id": "5363",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "3083",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "9a0b",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "af4a",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "39e9",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "6c43",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "0e2d",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "9388",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "c903",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "8c8a",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "4472",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "5e7c",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "0771",
+      "title": "",
+      "price": "",
+      "imageUrl": ""
+    }
+  ]
+}
