@@ -1,7 +1,9 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const baseUrl = `http://localhost:3000/products`
+// const baseUrl = `http://localhost:3000/products`
+const baseUrl = `https://mock-server-qkzm.onrender.com/products`
+
 
 function CreateProduct() {
 
@@ -20,10 +22,11 @@ function CreateProduct() {
             if (!formState.title && !formState.price && !formState.imageUrl) {
                 return toast.error('Please enter the data');
             }
+            console.log(formState);
             let res = await fetch(baseUrl, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'appsdflication/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formState)
             })

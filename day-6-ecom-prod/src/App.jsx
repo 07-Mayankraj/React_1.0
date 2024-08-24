@@ -4,7 +4,8 @@ import './App.css'
 import CreateProduct from './components/CreateProduct';
 import Product from './components/Product';
 import Pagination from './components/Pagination';
-const baseUrl = `http://localhost:3000/products`
+const baseUrl = `https://mock-server-qkzm.onrender.com/products`
+// const baseUrl = `http://localhost:3000/products`
 
 function App() {
 
@@ -17,13 +18,25 @@ function App() {
 
   const fetchProducts = async (page) => {
     try {
-      let data = await fetch(baseUrl + `/?_page=${page}&_per_page=6`)
-      let json = await data.json()
-      setlastPage(json.pages)
-      setProducts(json.data)
+      let data = await fetch(baseUrl + `/?_page=${page}&_limit=6`)
+      data = await data.json()
+      console.log({data});
+      setProducts(data)
       toast.success('Data Fetched and Updated')
     } catch (error) {
       toast.error('Error while getting the the data' + error.message)
+    }
+  }
+
+  const getLastPage = async () => {
+    try {
+
+      let getlastPage = await fetch(baseUrl)
+      getlastPage = await getlastPage.json()
+      let totalPages = Math.ceil(getlastPage.length / 6)
+      setlastPage(totalPages)
+    } catch (error) {
+      toast.error('Error while getting the total pages' + error.message)
     }
   }
 
@@ -31,10 +44,17 @@ function App() {
     fetchProducts(page)
   }, [page])
 
+  useEffect(() => {
+    getLastPage()
+  }, [])
 
-  const handlePageChange = (value)=>{
+
+
+  const handlePageChange = (value) => {
     setPage(page + value)
   }
+
+  console.log(page);
 
   return (<div>
     <Toaster position="top-right" />
@@ -48,7 +68,7 @@ function App() {
       }
     </div>
 
-   <Pagination page={page} lastPage = {lastPage} handlePageChange={handlePageChange}/>
+    <Pagination page={page} lastPage={lastPage} handlePageChange={handlePageChange} />
   </div>
   )
 }
