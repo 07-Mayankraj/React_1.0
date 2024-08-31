@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { ThemeContext } from './AppContextProvider.jsx'
 
+// provide the value to the context wrap the app in context
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+
+    <ThemeContext.Provider value={{theme : 'dark'}}>
+        <App />
+    </ThemeContext.Provider>
+
 )

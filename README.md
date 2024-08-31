@@ -12,6 +12,8 @@ import toast from "react-hot-toast"
 netlify init/build/deploy/open
 
 
+<!-- json server -->
+https://mock-server-qkzm.onrender.com/products
 
 
 <!-- projects -->
