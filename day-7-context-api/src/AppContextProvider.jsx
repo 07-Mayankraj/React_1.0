@@ -1,14 +1,16 @@
 import { createContext } from "react";
 
-export  const ThemeContext = createContext()
+export const ThemeContext = createContext()
 
 
-/*
-    C-->P-->C 
+function ThemeContextProvider(props){
+    return(
+        <ThemeContext.Provider value={{theme : 'dark'}}>
+            {props.children}
+        </ThemeContext.Provider>
+    )
 
-    1. c : create the context
-    2. P : provide the value to the context : main.js 
-    3. C : consume the value from the context : navbar.js
-*/
+}
 
+export default ThemeContextProvider
 
