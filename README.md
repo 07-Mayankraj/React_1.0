@@ -5,7 +5,9 @@ npx create-react-app my-app
 npm create vite@latest
 
 <!-- totst usecase -->
-import toast from "react-hot-toast"
+npm i react-hot-toast
+import toast, { Toaster } from 'react-hot-toast';
+
 <Toaster position="top-right" />
 
 <!-- deploy  -->
